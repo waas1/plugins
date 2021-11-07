@@ -1,0 +1,6 @@
+--------------------
+#1
+--------------------
+Hide annoying admin notice
+
+plugins/updraftplus/1.16.56/admin.php - 495 - 513
