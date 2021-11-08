@@ -1,0 +1,218 @@
+@import "../variables.scss";
+@import "hooks.scss";
+
+#overview-app {
+  #uip-date-range {
+    background: none;
+    border: none;
+    color: #777 !important;
+    width: 190px;
+    cursor: pointer;
+  }
+  .uip-date-range-container {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    &:hover {
+      background: #efebeb;
+    }
+  }
+}
+
+.a2020_night_mode {
+  #overview-app {
+    #uip-date-range {
+      color: #fff !important;
+    }
+    .uip-date-range-container {
+      &:hover {
+        background: #202020;
+      }
+    }
+  }
+  .litepicker {
+    .container__months,
+    .container__predefined-ranges {
+      background: #202020 !important;
+      color: rgba(255, 255, 255, 0.7);
+      box-shadow: none !important;
+    }
+    .container__main {
+      border: 1px solid $inverse-global-border;
+      border-radius: 4px;
+    }
+    .container__days .day-item {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .container__months .month-item-header {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+.litepicker {
+  .container__months .month-item {
+    padding: 20px;
+  }
+  .container__months.columns-2 {
+    width: calc((var(--litepicker-month-width) * 2) + 80px);
+  }
+  .container__months,
+  .container__predefined-ranges {
+    box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  }
+  .container__main {
+    border: 1px solid $global-border;
+    border-radius: 4px;
+  }
+  .container__main {
+    font-size: 0.9rem;
+  }
+  .container__predefined-ranges {
+    padding: 20px 0 !important;
+  }
+  .container__main > .container__predefined-ranges button {
+    padding: 5px 20px !important;
+    color: $global-muted-color;
+  }
+  .container__days .day-item.is-start-date,
+  .container__days .day-item.is-end-date {
+    background: $global-primary-background;
+  }
+  .container__days .day-item.is-in-range {
+    background: $global-primary-muted;
+  }
+}
+
+.uip-no-background {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.uip-edit-col {
+  .uip-card-area {
+    min-height: 300px;
+  }
+  .uip-empty-col .uip-card-area {
+    padding: 30px;
+    border: 4px dashed $global-border;
+    border-radius: 4px;
+  }
+}
+
+.a2020_night_mode {
+  .uip-dash-cards {
+    .top-level-card {
+      .uk-background-default {
+        background: #202020;
+      }
+    }
+  }
+  #uipress-welcome-message {
+    background: #202020;
+  }
+}
+
+.uip-overview-edit-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.uip-section-editing {
+  padding: 30px;
+  border: 2px dashed rgba(172, 172, 172, 33%);
+  border-radius: 4px;
+}
+
+.uip-column-editing {
+  border: 2px dashed rgba(172, 172, 172, 33%);
+}
+
+body.a2020_night_mode {
+  .uip-overview-edit-header {
+    .uk-button-primary {
+      background: $global-primary-background;
+    }
+  }
+  .uk-button-danger {
+    background: $global-danger-background;
+  }
+  .uip-dash-cards {
+    .uk-button-primary {
+      background: $global-primary-background;
+    }
+  }
+}
+
+///////////////
+////CARD WIDTHS
+///////////////
+[class*="uip-width"] {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+@media (max-width: 599px) {
+}
+
+@media (min-width: 600px) {
+}
+
+//DESKTOP UPWARDS
+.uip-width-xxsmall {
+  width: calc(100% * 1 / 6.001);
+}
+
+.uip-width-xsmall {
+  width: 20%;
+}
+
+.uip-width-small {
+  width: 25%;
+}
+.uip-width-small-medium {
+  width: calc(100% * 1 / 3.001);
+}
+.uip-width-medium {
+  width: 50%;
+}
+.uip-width-medium-large {
+  width: calc(100% * 2 / 3.001);
+}
+.uip-width-large {
+  width: 75%;
+}
+.uip-width-xlarge {
+  width: 100%;
+}
+
+///IPAD / SMALL LAPTOP
+@media (max-width: 1400px) {
+  .uip-width-xxsmall {
+    width: 25%;
+  }
+
+  .uip-width-xsmall,
+  .uip-width-small,
+  .uip-width-small-medium {
+    width: 50%;
+  }
+  .uip-width-medium-large {
+    width: 75%;
+  }
+}
+
+@media (max-width: 799px) {
+  .uip-width-xxsmall,
+  .uip-width-xsmall,
+  .uip-width-small,
+  .uip-width-small-medium,
+  .uip-width-medium,
+  .uip-width-medium-large,
+  .uip-width-large,
+  .uip-width-xlarge {
+    width: 100%;
+  }
+}

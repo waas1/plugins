@@ -1,0 +1,76 @@
+.a2020_admin_theme .seopress-option .wrap div.nav-tab-wrapper {
+  min-width: 0;
+}
+.a2020_admin_theme #wpadminbar #wp-toolbar #wp-admin-bar-seopress_custom_top_level > a {
+  display: flex;
+}
+
+.seopress-setup.wp-core-ui .uk-navbar-container {
+  display: none;
+}
+.seopress-setup.wp-core-ui #offcanvas-user-menu {
+  display: none;
+}
+
+.seopress-insights.seopress-styles .wrap,
+.toplevel_page_seopress-option.seopress-styles .wrap {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.a2020_admin_theme.a2020_night_mode .seopress-get-started,
+.a2020_admin_theme.a2020_night_mode #seopress-admin-tabs,
+.a2020_admin_theme.a2020_night_mode .seopress-page-list,
+.a2020_admin_theme.a2020_night_mode .seopress-option {
+  filter: invert(1) hue-rotate(180deg);
+  color: #111;
+}
+.a2020_admin_theme.a2020_night_mode .seopress-get-started *,
+.a2020_admin_theme.a2020_night_mode #seopress-admin-tabs *,
+.a2020_admin_theme.a2020_night_mode .seopress-page-list *,
+.a2020_admin_theme.a2020_night_mode .seopress-option * {
+  color: #111;
+}
+.a2020_admin_theme.a2020_night_mode .seopress-get-started img,
+.a2020_admin_theme.a2020_night_mode #seopress-admin-tabs img,
+.a2020_admin_theme.a2020_night_mode .seopress-page-list img,
+.a2020_admin_theme.a2020_night_mode .seopress-option img {
+  filter: invert(1) hue-rotate(180deg);
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .postbox-header,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt #seopress-tabs {
+  background: #111;
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .ui-tabs .ui-tabs-nav {
+  background: rgba(56, 56, 56, 0.36);
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .ui-tabs .ui-tabs-nav a {
+  color: #999;
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+  color: #fff;
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .ui-tabs .ui-tabs-panel {
+  background: #111;
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .wrap-seopress-counters,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt #seopress_pro_cpt .wrap-seopress-counters,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .seopress-setup .wrap-seopress-counters,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .seopress-styles .wrap-seopress-counters {
+  background: rgba(90, 90, 90, 0.36);
+}
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .sp-progress,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt #seopress_pro_cpt .sp-progress,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .seopress-setup .sp-progress,
+.a2020_admin_theme.a2020_night_mode #seopress_cpt .seopress-styles .sp-progress {
+  background-color: rgba(90, 90, 90, 0.36);
+}
+.a2020_admin_theme.a2020_night_mode #seopress_content_analysis {
+  background: #111;
+}
+.a2020_admin_theme.a2020_night_mode #seopress_content_analysis .gr-analysis-title button {
+  background: rgba(56, 56, 56, 0.36);
+  color: #fff;
+}
+
+/*# sourceMappingURL=plugin_wp-seopress.css.map */

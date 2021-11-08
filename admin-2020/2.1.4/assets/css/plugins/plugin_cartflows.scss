@@ -1,0 +1,27 @@
+@import "../variables.scss";
+@import "../modules/hooks.scss";
+
+.a2020_admin_menu {
+  .wcf-menu-page-wrapper {
+    .wcf-global-nav-menu {
+      left: 251px;
+      width: calc(100% - 251px);
+    }
+  }
+}
+.a2020_menu_small {
+  .wcf-menu-page-wrapper {
+    .wcf-global-nav-menu {
+      left: 61px;
+      width: calc(100% - 61px);
+    }
+  }
+}
+
+.a2020_admin_bar {
+  .wcf-menu-page-wrapper {
+    .wcf-global-nav-menu {
+      top: 61px;
+    }
+  }
+}

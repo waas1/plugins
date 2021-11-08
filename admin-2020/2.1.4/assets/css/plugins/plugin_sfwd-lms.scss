@@ -1,0 +1,68 @@
+@import "../variables.scss";
+@import "../modules/hooks.scss";
+
+.a2020_admin_theme.block-editor-page {
+  #sfwd-header {
+    top: 61px;
+    width: 100%;
+  }
+}
+
+#toplevel_page_learndash-lms,
+.toplevel_page_learndash-lms {
+  display: block !important;
+}
+
+.a2020_admin_bar.learndash-screen .edit-post-layout .editor-post-publish-panel {
+  top: 176px !important;
+}
+
+.a2020_admin_bar.learndash-screen.ld-header-has-tabs .edit-post-layout {
+  padding-top: 177px;
+}
+
+.a2020_admin_theme .ld-node-header .row-actions.-right {
+  opacity: 1 !important;
+  display: contents;
+}
+.a2020_admin_theme.a2020_night_mode {
+  .ld-bootcamp__widget {
+    filter: invert(1) hue-rotate(180deg);
+    h2 {
+      color: $dark;
+    }
+    iframe {
+      filter: invert(1) hue-rotate(180deg);
+    }
+    img {
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+  .ld-overview {
+    filter: invert(1) hue-rotate(180deg);
+    color: $dark;
+    h2,
+    a {
+      color: $dark;
+    }
+  }
+  #sfwd-header {
+    filter: invert(1) hue-rotate(180deg);
+    a,
+    button {
+      color: $dark;
+    }
+  }
+  .ld-onboarding-more-help {
+    filter: invert(1) hue-rotate(180deg);
+    color: $dark;
+    h2,
+    h3,
+    a {
+      color: $dark;
+    }
+    iframe {
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+}

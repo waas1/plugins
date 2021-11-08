@@ -1,0 +1,43 @@
+#admin2020_notification_center #login .message,
+#admin2020_notification_center .error,
+#admin2020_notification_center .is-dismissible,
+#admin2020_notification_center .notice,
+#admin2020_notification_center .update-nag,
+#admin2020_notification_center .updated {
+  background: #333;
+}
+#admin2020_notification_center .updated {
+  border-left: 4px solid #32d296 !important;
+}
+#admin2020_notification_center .error {
+  border-left: 4px solid #f0506e !important;
+}
+#admin2020_notification_center .warning {
+  border-left: 4px solid #faa05a !important;
+}
+
+.a2020-activation-message {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 9999999999;
+  width: auto;
+  border: 1px solid #e5e5e5 !important;
+  margin-bottom: 0 !important;
+}
+
+.a2020_night_mode #login .message,
+.a2020_night_mode .error,
+.a2020_night_mode .is-dismissible,
+.a2020_night_mode .notice,
+.a2020_night_mode .update-nag,
+.a2020_night_mode .updated {
+  background: rgba(56, 56, 56, 0.36);
+}
+.a2020_night_mode #activationpanel {
+  background: #222;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/*# sourceMappingURL=notification.css.map */

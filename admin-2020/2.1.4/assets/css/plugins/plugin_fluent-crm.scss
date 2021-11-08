@@ -1,0 +1,16 @@
+@import "../variables.scss";
+@import "../modules/hooks.scss";
+
+.a2020_admin_menu {
+  .wcf-menu-page-wrapper {
+    .fluentcrm_main_menu_items {
+      margin-left: 0;
+    }
+  }
+  .fluentcrm_main_menu_items {
+    margin-left: 0;
+  }
+  .fluentcrm-app {
+    margin-left: 20px;
+  }
+}

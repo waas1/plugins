@@ -1,0 +1,28 @@
+@import "../variables.scss";
+@import "../modules/hooks.scss";
+.a2020_admin_theme {
+  .wrap.ff_form_wrap.ff_screen_editor {
+    padding: 0;
+  }
+}
+.a2020_admin_bar {
+  .form_internal_menu {
+    top: 61px;
+  }
+}
+.a2020_admin_menu {
+  .form_internal_menu {
+    left: 251px;
+  }
+  .ff_form_main_nav {
+    margin-left: 0;
+  }
+  .ff_form_wrap {
+    margin-left: 20px;
+  }
+}
+.a2020_admin_menu.a2020_menu_small {
+  .form_internal_menu {
+    left: 61px;
+  }
+}

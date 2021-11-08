@@ -1,0 +1,23 @@
+.a2020_admin_theme .wrap.ff_form_wrap.ff_screen_editor {
+  padding: 0;
+}
+
+.a2020_admin_bar .form_internal_menu {
+  top: 61px;
+}
+
+.a2020_admin_menu .form_internal_menu {
+  left: 251px;
+}
+.a2020_admin_menu .ff_form_main_nav {
+  margin-left: 0;
+}
+.a2020_admin_menu .ff_form_wrap {
+  margin-left: 20px;
+}
+
+.a2020_admin_menu.a2020_menu_small .form_internal_menu {
+  left: 61px;
+}
+
+/*# sourceMappingURL=plugin_fluentform.css.map */

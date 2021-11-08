@@ -1,0 +1,18 @@
+.a2020_admin_menu div#wsf-layout-editor {
+  top: 61px;
+}
+
+.a2020_admin_bar div#wsf-layout-editor {
+  top: 61px;
+  height: calc(100% - 61px);
+}
+
+.a2020_menu_small div#wsf-layout-editor {
+  left: 61px;
+}
+
+.a2020_admin_bar #wsf-sidebars .wsf-sidebar {
+  top: 61px;
+}
+
+/*# sourceMappingURL=plugin_ws-form.css.map */

@@ -1,0 +1,14 @@
+.a2020_admin_theme.a2020_night_mode #BorlabsCookie .breadcrumb {
+  background: rgba(56, 56, 56, 0.36) !important;
+}
+.a2020_admin_theme.a2020_night_mode #BorlabsCookie .bg-light {
+  background: rgba(56, 56, 56, 0.36) !important;
+}
+.a2020_admin_theme.a2020_night_mode #BorlabsCookie .table {
+  color: #999 !important;
+}
+.a2020_admin_theme.a2020_night_mode #BorlabsCookie .navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+
+/*# sourceMappingURL=plugin_borlabs-cookie.css.map */

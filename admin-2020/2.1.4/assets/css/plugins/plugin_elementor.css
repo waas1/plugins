@@ -1,0 +1,15 @@
+.a2020_admin_menu #e-admin-top-bar-root {
+  left: 251px;
+  width: calc(100% - 251px);
+}
+
+.a2020_menu_small #e-admin-top-bar-root {
+  left: 61px;
+  width: calc(100% - 61px);
+}
+
+.a2020_admin_theme .e-admin-top-bar__heading-title {
+  margin: 0;
+}
+
+/*# sourceMappingURL=plugin_elementor.css.map */

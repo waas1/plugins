@@ -1,0 +1,60 @@
+.admin2020_switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+.admin2020_switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.admin2020_switch input:checked + .admin2020_slider {
+  background-color: var(--a2020-primary);
+}
+.admin2020_switch input:focus + .admin2020_slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+.admin2020_switch input:checked + .admin2020_slider:before {
+  content: "done";
+  font-family: "Material Icons Outlined";
+  font-size: 14px;
+  line-height: 1.5;
+  text-indent: 3px;
+  color: var(--a2020-primary);
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+.admin2020_switch .admin2020_slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--a2020-primary-wash);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 6px;
+}
+.admin2020_switch .admin2020_slider:before {
+  position: absolute;
+  content: "close";
+  font-family: "Material Icons Outlined";
+  font-size: 14px;
+  line-height: 1.5;
+  text-indent: 3px;
+  color: #999;
+  height: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+/*# sourceMappingURL=switch.css.map */

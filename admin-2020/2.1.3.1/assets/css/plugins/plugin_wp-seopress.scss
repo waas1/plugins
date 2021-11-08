@@ -1,0 +1,75 @@
+@import "../variables.scss";
+@import "../modules/hooks.scss";
+.a2020_admin_theme {
+  .seopress-option .wrap div.nav-tab-wrapper {
+    min-width: 0;
+  }
+  #wpadminbar #wp-toolbar #wp-admin-bar-seopress_custom_top_level > a {
+    display: flex;
+  }
+}
+.seopress-setup.wp-core-ui {
+  .uk-navbar-container {
+    display: none;
+  }
+  #offcanvas-user-menu {
+    display: none;
+  }
+}
+.seopress-insights.seopress-styles .wrap,
+.toplevel_page_seopress-option.seopress-styles .wrap {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.a2020_admin_theme.a2020_night_mode {
+  .seopress-get-started,
+  #seopress-admin-tabs,
+  .seopress-page-list,
+  .seopress-option {
+    filter: invert(1) hue-rotate(180deg);
+    color: $dark;
+    * {
+      color: $dark;
+    }
+    img {
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
+  #seopress_cpt {
+    .postbox-header,
+    #seopress-tabs {
+      background: $dark;
+    }
+    .ui-tabs .ui-tabs-nav {
+      background: $mid-dark;
+      a {
+        color: #999;
+      }
+      li.ui-tabs-active a {
+        color: #fff;
+      }
+    }
+    .ui-tabs .ui-tabs-panel {
+      background: $dark;
+    }
+    .wrap-seopress-counters,
+    #seopress_pro_cpt .wrap-seopress-counters,
+    .seopress-setup .wrap-seopress-counters,
+    .seopress-styles .wrap-seopress-counters {
+      background: $light-dark;
+    }
+    .sp-progress,
+    #seopress_pro_cpt .sp-progress,
+    .seopress-setup .sp-progress,
+    .seopress-styles .sp-progress {
+      background-color: $light-dark;
+    }
+  }
+  #seopress_content_analysis {
+    background: $dark;
+    .gr-analysis-title button {
+      background: $mid-dark;
+      color: #fff;
+    }
+  }
+}
