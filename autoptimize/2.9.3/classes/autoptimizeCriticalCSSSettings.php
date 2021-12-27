@@ -111,7 +111,7 @@ class autoptimizeCriticalCSSSettings {
         <div class="wrap">
             <div id="autoptimize_main">
                 <div id="ao_title_and_button">
-                    <h1><?php _e( 'Autoptimize Settings', 'autoptimize' ); ?></h1>
+                    <h1><?php apply_filters( 'autoptimize_filter_settings_is_pro', false ) ? _e( 'Autoptimize Pro Settings', 'autoptimize' ) : _e( 'Autoptimize Settings', 'autoptimize' ); ?></h1>
                 </div>
 
                 <?php
@@ -151,16 +151,16 @@ class autoptimizeCriticalCSSSettings {
                         ?>
                         <div class="notice-info notice"><p>
                         <?php
-                        _e( "The \"Inline and Defer CSS\" option was activated to allow critical CSS to be used.", 'autoptimize' );
+                        _e( "The \"Eliminate render-blocking CSS\" option was activated to allow critical CSS to be used.", 'autoptimize' );
                         ?>
                         </p></div>
                         <?php
                     } else {
-                        // we have keystate, so "inline & defer CSS" was probably disable for troubleshooting, warn but let users continue.
+                        // we have keystate, so "inline & defer CSS" was probably disabled for troubleshooting, warn but let users continue.
                         ?>
                         <div class="notice-warning notice"><p>
                         <?php
-                        _e( "Oops! Please <strong>activate the \"Inline and Defer CSS\" option</strong> on Autoptimize's main settings page to ensure critical CSS is used on the front-end.", 'autoptimize' );
+                        _e( "Please <strong>activate the \"Eliminate render-blocking CSS\" option</strong> on Autoptimize's main settings page to ensure critical CSS is used on the front-end.", 'autoptimize' );
                         ?>
                         </p></div>
                         <?php
@@ -173,6 +173,17 @@ class autoptimizeCriticalCSSSettings {
                     <div data-dismissible="i-know-about-disable-cron-forever" class="notice-warning notice is-dismissible"><p>
                     <?php
                     _e( 'WordPress cron (for task scheduling) seems to be disabled. Have a look at <a href="https://wordpress.org/plugins/autoptimize-criticalcss/faq/" target="_blank">the FAQ</a> or the info in the Job Queue instructions if all jobs remain in "N" status and no rules are created.', 'autoptimize' );
+                    ?>
+                    </p></div>
+                    <?php
+                }
+
+                // check if defer jQuery is active and warn if so.
+                if ( 1 == $ao_ccss_deferjquery && PAnD::is_admin_notice_active( 'i-know-about-defer-inline-forever' ) ) {
+                    ?>
+                    <div data-dismissible="i-know-about-defer-inline-forever" class="notice-warning notice is-dismissible"><p>
+                    <?php
+                    _e( 'You have "defer jQuery and other non-aggregated JS-files" active (under Advanced Settings), but that functionality is deprecated and will be removed in the next major version of Autoptimize. Consider using the new "Do not aggregate but defer" and "Also defer inline JS" options on the main settings page instead.', 'autoptimize' );
                     ?>
                     </p></div>
                     <?php

@@ -129,7 +129,7 @@ class autoptimizeExtra
             $exclusions = array_fill_keys( array_filter( array_map( 'trim', explode( ',', $in ) ) ), '' );
         }
 
-        $settings = $this->options['autoptimize_extra_text_field_3'];
+        $settings = wp_strip_all_tags( $this->options['autoptimize_extra_text_field_3'] );
         $async    = array_fill_keys( array_filter( array_map( 'trim', explode( ',', $settings ) ) ), '' );
         $attr     = apply_filters( 'autoptimize_filter_extra_async', 'async' );
         foreach ( $async as $k => $v ) {
@@ -345,7 +345,7 @@ class autoptimizeExtra
 
         // Get settings and store in array.
         if ( array_key_exists( 'autoptimize_extra_text_field_2', $options ) ) {
-            $preconns = array_filter( array_map( 'trim', explode( ',', $options['autoptimize_extra_text_field_2'] ) ) );
+            $preconns = array_filter( array_map( 'trim', explode( ',', wp_strip_all_tags( $options['autoptimize_extra_text_field_2'] ) ) ) );
         }
         $preconns = apply_filters( 'autoptimize_extra_filter_tobepreconn', $preconns );
 
@@ -400,7 +400,7 @@ class autoptimizeExtra
         $options  = $this->options;
         $preloads = array();
         if ( array_key_exists( 'autoptimize_extra_text_field_7', $options ) ) {
-            $preloads = array_filter( array_map( 'trim', explode( ',', $options['autoptimize_extra_text_field_7'] ) ) );
+            $preloads = array_filter( array_map( 'trim', explode( ',', wp_strip_all_tags( $options['autoptimize_extra_text_field_7'] ) ) ) );
         }
         $preloads = apply_filters( 'autoptimize_filter_extra_tobepreloaded', $preloads );
 
@@ -412,6 +412,7 @@ class autoptimizeExtra
         // iterate through array and add preload link to tmp string.
         $preload_output = '';
         foreach ( $preloads as $preload ) {
+            $preload     = esc_url_raw( $preload );
             $crossorigin = '';
             $preload_as  = '';
             $mime_type   = '';
@@ -428,7 +429,7 @@ class autoptimizeExtra
                 if ( ' type="font/eot"' === $mime_type ) {
                     $mime_type = 'application/vnd.ms-fontobject';
                 }
-            } elseif ( autoptimizeUtils::str_ends_in( $_preload, '.jpeg' ) || autoptimizeUtils::str_ends_in( $_preload, '.jpg' ) || autoptimizeUtils::str_ends_in( $_preload, '.webp' ) || autoptimizeUtils::str_ends_in( $_preload, '.png' ) || autoptimizeUtils::str_ends_in( $_preload, '.gif' ) ) {
+            } elseif ( autoptimizeUtils::str_ends_in( $_preload, '.jpeg' ) || autoptimizeUtils::str_ends_in( $_preload, '.jpg' ) || autoptimizeUtils::str_ends_in( $_preload, '.webp' ) || autoptimizeUtils::str_ends_in( $_preload, '.png' ) || autoptimizeUtils::str_ends_in( $_preload, '.gif' ) || autoptimizeUtils::str_ends_in( $_preload, '.svg' ) ) {
                 $preload_as = 'image';
             } else {
                 $preload_as = 'other';
@@ -486,7 +487,7 @@ class autoptimizeExtra
     </style>
     <script>document.title = "Autoptimize: <?php _e( 'Extra', 'autoptimize' ); ?> " + document.title;</script>
     <div class="wrap">
-    <h1><?php _e( 'Autoptimize Settings', 'autoptimize' ); ?></h1>
+    <h1><?php apply_filters( 'autoptimize_filter_settings_is_pro', false ) ? _e( 'Autoptimize Pro Settings', 'autoptimize' ) : _e( 'Autoptimize Settings', 'autoptimize' ); ?></h1>
         <?php echo autoptimizeConfig::ao_admin_tabs(); ?>
         <?php if ( 'on' !== autoptimizeOptionWrapper::get_option( 'autoptimize_js' ) && 'on' !== autoptimizeOptionWrapper::get_option( 'autoptimize_css' ) && 'on' !== autoptimizeOptionWrapper::get_option( 'autoptimize_html' ) && ! autoptimizeImages::imgopt_active() ) { ?>
             <div class="notice-warning notice"><p>
