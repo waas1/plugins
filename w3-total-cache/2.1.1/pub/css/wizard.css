@@ -135,10 +135,6 @@ ul#w3tc-options-menu {
 	display: none;
 }
 
-#wpfooter {
-	position: relative;
-}
-
 /* Spinner */
 .spinner.inline {
 	float: none;

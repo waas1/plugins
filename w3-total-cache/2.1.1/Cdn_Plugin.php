@@ -235,9 +235,7 @@ class Cdn_Plugin {
 
 		$cdn_engine = $this->_config->get_string( 'cdn.engine' );
 		if ( Cdn_Util::is_engine_mirror( $cdn_engine ) ) {
-			if ($this->_config->get_boolean( 'cdn.uploads.enable' )) {
-				$common->purge( $files, $results );
-			}
+			$common->purge( $files, $results );
 		} else {
 			$common->upload( $files, true, $results );
 		}
@@ -876,24 +874,22 @@ class _Cdn_Plugin_ContentFilter {
 
 		if ( $this->_config->get_boolean( 'cdn.minify.enable' ) ) {
 			if ( $this->_config->get_boolean( 'minify.auto' ) ) {
-				$minify_url_regexp = $this->minify_url_regexp( '/[a-zA-Z0-9-_]+\.(css|js)' );
-
-				if ( Cdn_Util::is_engine_mirror( $this->_config->get_string( 'cdn.engine' ) ) ) {
+				$regexp = '~(["\'(=])\s*' .
+					$this->minify_url_regexp( '/[a-zA-Z0-9-_]+\.(css|js)' ) .
+					'~U';
+				if ( Cdn_Util::is_engine_mirror( $this->_config->get_string( 'cdn.engine' ) ) )
 					$processor = array( $this, '_link_replace_callback' );
-				} else {
+				else
 					$processor = array( $this, '_minify_auto_pushcdn_link_replace_callback' );
-				}
 			} else {
-				$minify_url_regexp = $this->minify_url_regexp(
-					'/[a-z0-9]+\..+\.include(-(footer|body))?(-nb)?\.[a-f0-9]+\.(css|js)' );
-
+				$regexp = '~(["\'(=])\s*' .
+					$this->minify_url_regexp(
+					'/[a-z0-9]+\..+\.include(-(footer|body))?(-nb)?\.[a-f0-9]+\.(css|js)' )
+					.'~U';
 				$processor = array( $this, '_link_replace_callback' );
 			}
 
-			if ( !empty( $minify_url_regexp ) ) {
-				$regexp = '~(["\'(=])\s*' . $minify_url_regexp .'~U';
-				$buffer = preg_replace_callback( $regexp, $processor, $buffer );
-			}
+			$buffer = preg_replace_callback( $regexp, $processor, $buffer );
 		}
 
 		$buffer = $this->replace_placeholders( $buffer );
@@ -971,10 +967,8 @@ class _Cdn_Plugin_ContentFilter {
 			Util_Environment::cache_blog_minify_dir()
 		);
 		$matches = null;
-		if ( !preg_match( '~((https?://)?([^/]+))(.+)~i', $minify_base_url, $matches ) ) {
-			error_log( 'cant find minification base url, make sure minification folder sits inside WP_CONTENT_DIR and DOCUMENT_ROOT is set correctly' );
+		if ( !preg_match( '~((https?://)?([^/]+))(.+)~i', $minify_base_url, $matches ) )
 			return '';
-		}
 
 		$protocol_domain_regexp = Util_Environment::get_url_regexp( $matches[1] );
 		$path_regexp = Util_Environment::preg_quote( $matches[4] );

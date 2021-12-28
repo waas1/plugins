@@ -14,11 +14,10 @@ class Minify_HTMLTidy {
             'show-errors' => 0,
             'show-warnings' => false,
             'force-output' => true,
-            'tidy-mark' => false,
-            'output-xhtml' => false,
+            'tidy-mark' => false
         ));
 
-        $tidy = new \tidy();
+        $tidy = new tidy();
         $tidy->parseString($content, $options);
         $tidy->cleanRepair();
 

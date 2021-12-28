@@ -269,8 +269,6 @@ class Cache_Redis extends Cache_Base {
 		$accessor->watch( $storage_key );
 
 		$value = $accessor->get( $storage_key );
-		$value = @unserialize( $value );
-
 		if ( !is_array( $value ) ) {
 			$accessor->unwatch();
 			return false;

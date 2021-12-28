@@ -6,8 +6,6 @@
 return array(
 	'asf|asx|wax|wmv|wmx' => 'video/asf',
 	'avi' => 'video/avi',
-	'avif' => 'image/avif',
-	'avifs' => 'image/avif-sequence',
 	'bmp' => 'image/bmp',
 	'class' => 'application/java',
 	'divx' => 'video/divx',

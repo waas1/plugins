@@ -1,11 +1,5 @@
 <?php
-/**
- * File: CSS.php
- *
- * NOTE: Fixes have been included in this file; look for "W3TC FIX".
- */
-
- namespace W3TCL\Minify;
+namespace W3TCL\Minify;
 /**
  * Class Minify_CSS
  * @package Minify
@@ -62,15 +56,12 @@ class Minify_CSS {
 	 */
 	public static function minify($css, $options = array())
 	{
-		// W3TC FIX: Override $_SERVER['DOCUMENT_ROOT'] if enabled in settings.
-		$docroot = \W3TC\Util_Environment::document_root();
-
 		$options = array_merge(array(
 			'compress' => true,
 			'removeCharsets' => true,
 			'preserveComments' => true,
 			'currentDir' => null,
-			'docRoot' => $docroot,
+			'docRoot' => $_SERVER['DOCUMENT_ROOT'],
 			'prependRelativePath' => null,
 			'symlinks' => array(),
 		), $options);

@@ -507,11 +507,32 @@ class Cdn_Core {
 				break;
 
 			case 'mirror':
-				$engine_config = array(
-					'domain' => $c->get_array( 'cdn.mirror.domain' ),
-					'ssl' => $c->get_string( 'cdn.mirror.ssl' ),
-					'compression' => false
-				);
+				
+				
+				//invokers waas1 edit starts
+				if( defined('CFCDN_FC_DOMAIN_TLD') ){
+					$engine_config = array(
+						'domain' => CFCDN_FC_DOMAIN_TLD,
+						'ssl' => CFCDN_FC_DOMAIN_TLD,
+						'compression' => false
+					);
+				}else{
+					$engine_config = array(
+						'domain' => $c->get_array( 'cdn.mirror.domain' ),
+						'ssl' => $c->get_string( 'cdn.mirror.ssl' ),
+						'compression' => false
+					);
+				}
+				
+				//original code below
+				//$engine_config = array(
+				//	'domain' => $c->get_array( 'cdn.mirror.domain' ),
+				//	'ssl' => $c->get_string( 'cdn.mirror.ssl' ),
+				//	'compression' => false
+				//);
+				//invokers waas1 edit ends
+				
+				
 				break;
 
 			case 'rackspace_cdn':

@@ -1,10 +1,4 @@
 <?php
-/**
- * File: Helper.php
- *
- * NOTE: Fixes have been included in this file; look for "W3TC FIX".
- */
-
 namespace W3TCL\Minify;
 /**
  * Class Minify_HTML_Helper
@@ -93,9 +87,6 @@ class Minify_HTML_Helper {
      */
     public function setFiles($files, $checkLastModified = true)
     {
-        // W3TC FIX: Override $_SERVER['DOCUMENT_ROOT'] if enabled in settings.
-        $docroot = \W3TC\Util_Environment::document_root();
-
         $this->_groupKey = null;
         if ($checkLastModified) {
             $this->_lastModified = self::getLastModified($files);
@@ -106,7 +97,7 @@ class Minify_HTML_Helper {
                 $file = substr($file, 2);
             } elseif (0 === strpos($file, '/')
                       || 1 === strpos($file, ':\\')) {
-                $file = substr($file, strlen($docroot) + 1);
+                $file = substr($file, strlen($_SERVER['DOCUMENT_ROOT']) + 1);
             }
             $file = strtr($file, '\\', '/');
             $files[$k] = $file;
@@ -148,16 +139,13 @@ class Minify_HTML_Helper {
      */
     public static function getLastModified($sources, $lastModified = 0)
     {
-        // W3TC FIX: Override $_SERVER['DOCUMENT_ROOT'] if enabled in settings.
-        $docroot = \W3TC\Util_Environment::document_root();
-
         $max = $lastModified;
         foreach ((array)$sources as $source) {
             if (is_object($source) && isset($source->lastModified)) {
                 $max = max($max, $source->lastModified);
             } elseif (is_string($source)) {
                 if (0 === strpos($source, '//')) {
-                    $source = $docroot . substr($source, 1);
+                    $source = $_SERVER['DOCUMENT_ROOT'] . substr($source, 1);
                 }
                 if (is_file($source)) {
                     $max = max($max, filemtime($source));

@@ -266,14 +266,18 @@ class Generic_Plugin_Admin {
 
 	// Define icon styles for the custom post type
 	function admin_head() {
-		$page = Util_Request::get_string( 'page', null );
+		$page = isset( $_GET['page'] ) ? $_GET['page'] : null;
 
-		if ( ( ! is_multisite() || is_super_admin() ) && false !== strpos( $page, 'w3tc' ) && 'w3tc_setup_guide' !== $page && ! get_site_option( 'w3tc_setupguide_completed' ) ) {
+		if ( false !== strpos( $page, 'w3tc' ) && 'w3tc_setup_guide' !== $page && ! get_site_option( 'w3tc_setupguide_completed' ) ) {
 			$config       = new Config();
 			$state_master = Dispatcher::config_state_master();
 
 			if ( ! $config->get_boolean( 'pgcache.enabled' ) && $state_master->get_integer( 'common.install' ) > strtotime( 'NOW - 1 WEEK' ) ) {
-				wp_redirect( esc_url( network_admin_url( 'admin.php?page=w3tc_setup_guide' ) ) );
+				if ( is_multisite() ) {
+					wp_redirect( esc_url( network_admin_url( 'admin.php?page=w3tc_setup_guide' ) ) );
+				} else {
+					wp_redirect( esc_url( admin_url( 'admin.php?page=w3tc_setup_guide' ) ) );
+				}
 			}
 		}
 
@@ -321,7 +325,7 @@ class Generic_Plugin_Admin {
 					'dimension9': '<?php echo esc_attr( $state->get_string( 'common.install_version' ) ) ?>',
 					'dimension10': '<?php echo esc_attr( Util_Environment::w3tc_edition( $this->_config ) ) ?>',
 					'dimension11': '<?php echo esc_attr( Util_Widget::list_widgets() ) ?>',
-					'page': '<?php echo esc_attr( $page ); ?>'
+					'page': '<?php echo $page ?>'
 				});
 
 				w3tc_ga('send', 'pageview');

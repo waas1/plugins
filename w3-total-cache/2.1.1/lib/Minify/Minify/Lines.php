@@ -1,12 +1,5 @@
 <?php
-/**
- * File: Lines.php
- *
- * NOTE: Fixes have been included in this file; look for "W3TC FIX".
- */
-
 namespace W3TCL\Minify;
-
 /**
  * Class Minify_Lines
  * @package Minify
@@ -75,11 +68,7 @@ class Minify_Lines
 		// check for desired URI rewriting
 		if (isset($options['currentDir'])) {
 			Minify_CSS_UriRewriter::$debugText = '';
-
-			// W3TC FIX: Override $_SERVER['DOCUMENT_ROOT'] if enabled in settings.
-			$docroot = \W3TC\Util_Environment::document_root();
-
-			$docRoot = isset($options['docRoot']) ? $options['docRoot'] : $docroot;
+			$docRoot = isset($options['docRoot']) ? $options['docRoot'] : $_SERVER['DOCUMENT_ROOT'];
 			$symlinks = isset($options['symlinks']) ? $options['symlinks'] : array();
 
 			$content = Minify_CSS_UriRewriter::rewrite($content, $options['currentDir'], $docRoot, $symlinks);

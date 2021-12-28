@@ -11,21 +11,9 @@ if ( !defined( 'W3TC' ) )
 
 <p class="cloudflare_p">
     Period
-    <?php
-    if( $stats['interval'] >= -1440 ) {
-        echo $this->date_time( $stats['since'] );
-    } else {
-        echo $this->date( $stats['since'] );
-    }
-    ?>
+    <?php $this->time_mins( $stats, 'since' ) ?>
       -
-    <?php
-    if( $stats['interval'] >= -1440 ) {
-        echo $this->date_time( $stats['until'] );
-    } else {
-        echo $this->date( $stats['until'] );
-    }
-    ?>
+    <?php $this->time_mins( $stats, 'until' ) ?>
 </p>
 <table class="cloudflare_table">
     <tr>
@@ -35,27 +23,26 @@ if ( !defined( 'W3TC' ) )
     </tr>
     <tr>
         <td class="cloudflare_td">Bandwidth</td>
-        <?php $this->value( $stats['bandwidth_all'] ) ?>
-        <?php $this->value( $stats['bandwidth_cached'] ) ?>
+        <?php $this->v( $stats, 'bandwidth', 'all' ) ?>
+        <?php $this->v( $stats, 'bandwidth', 'cached' ) ?>
     </tr>
     <tr>
         <td class="cloudflare_td">Requests</td>
-        <?php $this->value( $stats['requests_all'] ) ?>
-        <?php $this->value( $stats['requests_cached'] ) ?>
+        <?php $this->v( $stats, 'requests', 'all' ) ?>
+        <?php $this->v( $stats, 'requests', 'cached' ) ?>
     </tr>
     <tr>
         <td class="cloudflare_td">Page Views</td>
-        <?php $this->value( $stats['pageviews_all'] ) ?>
+        <?php $this->v( $stats, 'pageviews', 'all' ) ?>
     </tr>
     <tr>
         <td class="cloudflare_td">Uniques</td>
-        <?php $this->value( $stats['uniques_all'] ) ?>
+        <?php $this->v( $stats, 'uniques', 'all' ) ?>
     </tr>
     <tr>
         <td class="cloudflare_td">Threats</td>
-        <?php $this->value( $stats['threats_all'] ) ?>
+        <?php $this->v( $stats, 'threats', 'all' ) ?>
     </tr>
 </table>
-<p class="cloudflare_p"><small>Statistics cached for <?php $this->value( $stats['cached_tf'] ) ?> minutes on <?php $this->date_time( $stats['cached_ts'] ) ?></small></p>
 
 <?php endif; ?>

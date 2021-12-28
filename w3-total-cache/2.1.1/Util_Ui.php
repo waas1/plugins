@@ -648,9 +648,7 @@ class Util_Ui {
 				'disabled' => $a['disabled']
 			) );
 		} elseif ( 'none' === $a['control'] ) {
-			esc_html_e( $a['none_label'], 'w3-total-cache' );
-		} elseif ( 'button' === $a['control'] ) {
-			echo '<button type="button" class="button">' . __( $a['none_label'], 'w3-total-cache' ) . '</button>';
+			esc_html_e( $a['none_label'] );
 		}
 	}
 
@@ -1046,13 +1044,16 @@ class Util_Ui {
 	}
 
 	/**
-	 * Get the admin URL based on the path and the interface (network or site).
 	 *
-	 * @param  string $path Admin path/URI.
-	 * @return string
+	 *
+	 * @param string  $path
+	 * @return string|void
 	 */
-	public static function admin_url( $path ) {
-		return is_network_admin() ? network_admin_url( $path ) : admin_url( $path );
+	static public function admin_url( $path ) {
+		if ( is_network_admin() ) {
+			return network_admin_url( $path );
+		}
+		return admin_url( $path );
 	}
 
 	/**

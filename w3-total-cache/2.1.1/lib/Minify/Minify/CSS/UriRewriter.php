@@ -1,11 +1,5 @@
 <?php
-/**
- * File: UriRewriter.php
- *
- * NOTE: Fixes have been included in this file; look for "W3TC FIX".
- */
-
- namespace W3TCL\Minify;
+namespace W3TCL\Minify;
 /**
  * Class Minify_CSS_UriRewriter
  * @package Minify
@@ -60,11 +54,8 @@ class Minify_CSS_UriRewriter {
 			(isset($options['browserCacheExtensions']) ?
 			$options['browserCacheExtensions'] : array());
 
-		// W3TC FIX: Override $_SERVER['DOCUMENT_ROOT'] if enabled in settings.
-		$docroot = \W3TC\Util_Environment::document_root();
-
 		if (isset($options['currentDir'])) {
-			$document_root = (isset($options['docRoot']) ? $options['docRoot'] : $docroot);
+			$document_root = (isset($options['docRoot']) ? $options['docRoot'] : $_SERVER['DOCUMENT_ROOT']);
 			$symlinks = (isset($options['symlinks']) ? $options['symlinks'] : array());
 			$prependAbsolutePath = (isset($options['prependAbsolutePath']) ? $options['prependAbsolutePath'] : '');
 			$prependAbsolutePathCallback = (isset($options['prependAbsolutePathCallback']) ? $options['prependAbsolutePathCallback'] : '');
@@ -120,11 +111,8 @@ class Minify_CSS_UriRewriter {
 	private static function _rewrite($css, $currentDir,
 			$prependAbsolutePath = null, $prependAbsolutePathCallback = null,
 			$docRoot = null, $symlinks = array()) {
-				// W3TC FIX: Override $_SERVER['DOCUMENT_ROOT'] if enabled in settings.
-				$docroot = \W3TC\Util_Environment::document_root();
-
 		self::$_docRoot = self::_realpath(
-			$docRoot ? $docRoot : $docroot
+			$docRoot ? $docRoot : $_SERVER['DOCUMENT_ROOT']
 		);
 		self::$_currentDir = self::_realpath($currentDir);
 		self::$_prependAbsolutePath = $prependAbsolutePath;
