@@ -64,9 +64,6 @@ class Generic_AdminNotes {
 
 		if ( $state_master->get_boolean( 'common.show_note.nginx_restart_required' ) ) {
 			$cf = Dispatcher::component( 'CacheFlush' );
-			
-			/*
-			invokers waas1 edit start
 			$notes['nginx_restart_required'] = sprintf(
 				__( 'nginx.conf rules have been updated. Please restart nginx server to provide a consistent user experience. %s',
 					'w3-total-cache' ),
@@ -74,9 +71,6 @@ class Generic_AdminNotes {
 						'w3tc_default_config_state_master' => 'y',
 						'key' => 'common.show_note.nginx_restart_required',
 						'value' => 'false' ) ) );
-			invokers waas1 edit end
-			*/
-			
 		}
 
 		/**
@@ -130,9 +124,7 @@ class Generic_AdminNotes {
 					)
 				);
 			}
-			
-			//invokers waas1 edit starts
-			/*
+
 			if ( count( $texts ) ) {
 				$notes['some_plugins_activated'] = sprintf(
 					__( 'One or more plugins have been activated or deactivated, please %s. %s',
@@ -143,8 +135,6 @@ class Generic_AdminNotes {
 							'key' => 'common.show_note.plugins_updated',
 							'value' => 'false' ) ) );
 			}
-			*/
-			//invokers waas1 edit ends
 		}
 
 
