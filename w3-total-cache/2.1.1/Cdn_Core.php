@@ -509,7 +509,7 @@ class Cdn_Core {
 			case 'mirror':
 				
 				
-				//invokers edit starts
+				//invokers waas1 edit starts
 				if( defined('CFCDN_FC_DOMAIN_TLD') ){
 					$engine_config = array(
 						'domain' => CFCDN_FC_DOMAIN_TLD,
@@ -530,7 +530,7 @@ class Cdn_Core {
 				//	'ssl' => $c->get_string( 'cdn.mirror.ssl' ),
 				//	'compression' => false
 				//);
-				//invokers edit ends
+				//invokers waas1 edit ends
 				
 				
 				break;

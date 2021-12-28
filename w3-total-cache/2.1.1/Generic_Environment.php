@@ -136,12 +136,12 @@ class Generic_Environment {
 		);
 		
 		
-		//invokers edit
+		//invokers waas1 edit starts
 		//original code starts from here
 		//if ( !(defined( 'W3TC_CONFIG_DATABASE' ) && W3TC_CONFIG_DATABASE ) ) {
 		//	$directories[] = W3TC_CONFIG_DIR;
 		//}
-		//invokers end
+		//invokers waas1 edit ends
 
 		foreach ( $directories as $directory ) {
 			try{
