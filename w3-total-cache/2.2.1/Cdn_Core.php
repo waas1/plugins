@@ -531,6 +531,9 @@ class Cdn_Core {
 				//	'compression' => false
 				//);
 				//invokers waas1 edit ends
+				
+				
+				break;
 
 			case 'rackspace_cdn':
 				$state = Dispatcher::config_state();
