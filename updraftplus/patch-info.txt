@@ -3,4 +3,4 @@
 --------------------
 Hide annoying admin notice
 
-plugins/updraftplus/1.16.56/admin.php - 495 - 513
+plugins/updraftplus/1.22.12/admin.php - 523 - 540 --- Main dashboard page advert
