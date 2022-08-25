@@ -115,6 +115,17 @@ class PgCache_Plugin_Admin {
 	 * @return void
 	 */
 	function prime( $start = null, $limit = null, $log_callback = null ) {
+		
+		//invokers waas1 path edit start's.
+		// if some other my_task is already running, stop
+		if ( get_transient( 'waas1_wp_cli_pgcache_prime_running' ) ){
+			\WP_CLI::error( __( 'Another page prime job is already running.... ', 'w3-total-cache' ) );
+		}
+		// set semaphore for 10 minutes
+		set_transient( 'waas1_wp_cli_pgcache_prime_running', true, 10*60 );
+		//invokers waas1 path edit end's
+		
+		
 		if ( is_null( $start ) ) {
 			$start = get_option( 'w3tc_pgcache_prime_offset' );
 		}
@@ -131,6 +142,14 @@ class PgCache_Plugin_Admin {
 		}
 
 		$sitemap = $this->_config->get_string( 'pgcache.prime.sitemap' );
+		
+		//invokers waas1 path edit start's.
+		//this pach is applied for the cache prime/warmer to work. without value this will not prime the page cache
+		if( !$sitemap ){
+			\WP_CLI::log( 'Notice: site map value not set in the w3-total-cahe plugin wp backend. Will use default sitemap location: /sitemap.xml' );
+			$sitemap = '/sitemap.xml';
+		}
+		//invokers waas1 path edit end's
 
 		if ( !is_null( $log_callback ) ) {
 			$log_callback( 'Priming from sitemap ' . $sitemap .
@@ -168,6 +187,10 @@ class PgCache_Plugin_Admin {
 				$log_callback( 'Priming ' . $url );
 			}
 		}
+		
+		//invokers waas1 path edit start's.
+		delete_transient( 'waas1_wp_cli_pgcache_prime_running' );
+		//invokers waas1 path edit end's
 	}
 
 	/**
