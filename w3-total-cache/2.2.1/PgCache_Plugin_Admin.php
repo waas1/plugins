@@ -117,6 +117,9 @@ class PgCache_Plugin_Admin {
 	function prime( $start = null, $limit = null, $log_callback = null ) {
 		
 		//invokers waas1 path edit start's.
+		if ( get_transient( 'waas1_wp_cli_pgcache_prime_finished_recently' ) ){
+			\WP_CLI::error( __( 'Page prime job just recently finished running. Next run after 30mins.', 'w3-total-cache' ) );
+		}
 		// if some other my_task is already running, stop
 		if ( get_transient( 'waas1_wp_cli_pgcache_prime_running' ) ){
 			\WP_CLI::error( __( 'Another page prime job is already running.... ', 'w3-total-cache' ) );
@@ -189,6 +192,9 @@ class PgCache_Plugin_Admin {
 		}
 		
 		//invokers waas1 path edit start's.
+		//set the new transiet to not to run the same job again for 30 mins
+		set_transient( 'waas1_wp_cli_pgcache_prime_finished_recently', true, 30*60 ); //never delete this transient
+		//remove the prime running check
 		delete_transient( 'waas1_wp_cli_pgcache_prime_running' );
 		//invokers waas1 path edit end's
 	}
