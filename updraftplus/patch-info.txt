@@ -3,4 +3,14 @@
 --------------------
 Hide annoying admin notice
 
+plugins/updraftplus/1.16.56/admin.php - 495 - 513 --- Main dashboard page advert
 plugins/updraftplus/1.22.12/admin.php - 523 - 540 --- Main dashboard page advert
+plugins/updraftplus/1.22.18/admin.php - 531 - 549 --- Main dashboard page advert
+
+--------------------
+#2
+--------------------
+added wp cli support
+plugins/updraftplus/1.16.56/addons/wp-cli.php
+plugins/updraftplus/1.12.12/addons/wp-cli.php
+plugins/updraftplus/1.12.18/addons/wp-cli.php
