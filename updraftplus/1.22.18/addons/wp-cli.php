@@ -346,7 +346,10 @@ class UpdraftPlus_CLI_Command extends WP_CLI_Command {
 	 * @when after_wp_load
 	 * @alias existing-backups
 	 */
-	public function existing_backups() {
+	//invokers waas1 edit start
+	//public function existing_backups() { //original
+	public function existing_backups( $args, $assoc_args ) {
+	//invokers waas1 edit ends
 		if (false === ($updraftplus = $this->_load_ud())) return new WP_Error('no_updraftplus');
 		if (false === ($updraftplus_admin = $this->_load_ud_admin())) return new WP_Error('no_updraftplus');
 		
@@ -387,8 +390,16 @@ class UpdraftPlus_CLI_Command extends WP_CLI_Command {
 				'backup_entities' => $backup_entities,
 			);
 		}
+		
+		//invokers waas1 edit start
+		//WP_CLI\Utils\format_items('table', $items, array('job_identifier', 'nonce', 'backup_entities')); //original
+		$formatter = new \WP_CLI\Formatter( $assoc_args, 
+											array('job_identifier', 'nonce', 'backup_entities')
+											);
 
-		WP_CLI\Utils\format_items('table', $items, array('job_identifier', 'nonce', 'backup_entities'));
+		$formatter->display_items( $items );
+		//invokers waas1 edit end
+	
 	}
 
 	/**
